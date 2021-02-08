@@ -1,29 +1,26 @@
 import React, { Component } from "react";
-import Button from './Component/Button'
+import Profile from './Component/Profile'
 import Clock from './Component/Clock'
 
-import profilePhoto from './assets/photoprofile.jpg';
+
 
 class App extends Component {
 
-  state = {
-    fullName: 'Mohamed Ali Sammoud',
-    bio:'is a fashion consultant who loves runway shows, designer handbags and loads of coffee. Contact Mohamed Ali via FB.',
-    imgSrc:profilePhoto,
-    profession:"Titulaire d'un License de développement des systèmes d'information.",
-    show :false
+  state={
+    show:false
   }
   handleToggleShow = () => {
-    this.setState(prevState => ({ show: !prevState.show }));
+    this.setState({
+       show: !this.state.show 
+      });
   };
   
   render() {
     return (
       <div className="App">
-        <Button Name={this.state.fullName} Bio={this.state.bio} Image={this.state.imgSrc} Profession={this.state.profession} Show={this.state.show}
-            handleToggleShow={this.handleToggleShow}
-        />
-      <Clock date={new Date()} />
+        <button className='btt' onClick={this.handleToggleShow}>Show Profile</button>
+        {this.state.show && <Profile />}
+      <Clock Date={Date.now()} />
       </div>
     );
   }
