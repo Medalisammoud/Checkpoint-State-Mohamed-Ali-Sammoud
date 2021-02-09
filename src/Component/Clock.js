@@ -2,16 +2,16 @@ import React,{Component} from "react";
 
 class Clock extends Component {
   state={
-          startDateTime : this.props.Date.toLocaleTimeString(),
+          startDateTime : new Date().toLocaleTimeString(),
         }
   
  
-      componentDidMount(){
-       setInterval((
+      componentDidMount = () => {
+       setInterval(() => {
           this.setState({
-          startDateTime : this.props.Date.toLocaleTimeString()
-        }))
-        ,1000)
+          startDateTime : new Date().toLocaleTimeString()
+        })
+      },1000)
         
         }
       
