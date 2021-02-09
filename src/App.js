@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <button className='btt' onClick={this.handleToggleShow}>Show Profile</button>
         {this.state.show && <Profile />}
-      <Clock Date={Date.now()} />
+      <Clock Date={new Date()} />
       </div>
     );
   }

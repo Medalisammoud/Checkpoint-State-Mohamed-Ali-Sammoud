@@ -2,18 +2,24 @@ import React,{Component} from "react";
 
 class Clock extends Component {
   state={
-    startDateTime : this.props.Date
-  }
+          startDateTime : this.props.Date.toLocaleTimeString(),
+        }
+  
  
       componentDidMount(){
-        this.setState({ 
-          startDateTime : Date.now()
-        });
-      }
+       setInterval((
+          this.setState({
+          startDateTime : this.props.Date.toLocaleTimeString()
+        }))
+        ,1000)
+        
+        }
+      
+      
 render(){
   return (
     <div>
-      <h3 style={{margin: '20px 0 20px 700px'}}>Il est { setInterval(this.state.startDateTime, 1000)}</h3>
+      <h3 style={{margin: '20px 0 20px 700px'}}>Il est {this.state.startDateTime}</h3>
     </div>
   );
 }}
